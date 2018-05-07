@@ -10,9 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
+    
+  
+    @IBAction func LayoutSelected(_ sender: UIButton) {
+        sender.isSelected = true
+    }
+    
+    
+//    func swipe(){
+//        let swipeUp = UISwipeGestureRecognizer(target:, action:)
+//        swipeUp.direction = UISwipeGestureRecognizer.up
+//    }
+
+    
+    
+    @IBOutlet weak var centralView: CentralView!
+    
+        override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
