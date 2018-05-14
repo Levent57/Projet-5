@@ -10,32 +10,50 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
-  
-    @IBAction func LayoutSelected(_ sender: UIButton) {
-        sender.isSelected = true
-    }
-    
-    
-//    func swipe(){
-//        let swipeUp = UISwipeGestureRecognizer(target:, action:)
-//        swipeUp.direction = UISwipeGestureRecognizer.up
-//    }
-
-    
-    
     @IBOutlet weak var centralView: CentralView!
+    @IBOutlet weak var firstButton: UIButton!
+    @IBOutlet weak var secondButton: UIButton!
+    @IBOutlet weak var thirdButton: UIButton!
     
-        override func viewDidLoad() {
+    
+    @IBAction func paterneButtonTapped(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            centralView.displayLayout(id: 1, type: .one)
+            unseclectButtons()
+            firstButton.isSelected = true
+        case 1:
+            centralView.displayLayout(id: 2, type: .two)
+            unseclectButtons()
+            secondButton.isSelected = true
+        case 2:
+            centralView.displayLayout(id: 3, type: .three)
+            unseclectButtons()
+            thirdButton.isSelected = true
+        default:
+            break
+        }
+    }
+
+    override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    func unseclectButtons(){
+        firstButton.isSelected = false
+        secondButton.isSelected = false
+        thirdButton.isSelected = false
+    }
+    
+    
+    
+    
+    
 }
 

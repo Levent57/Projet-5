@@ -7,34 +7,43 @@
 //
 
 import UIKit
-enum layouts: Int{
-    case one = 1
-    case two = 2
-    case three = 3
-}
+
 
 class CentralView: UIView {
     
-    var type:layouts = .one
+    @IBOutlet weak var topLeft : UIView!
+    @IBOutlet weak var topRight : UIView!
+    @IBOutlet weak var botLeft : UIView!
+    @IBOutlet weak var botRight : UIView!
     
+    enum Layout: Int{
+        case one = 1
+        case two = 2
+        case three = 3
+    }
     
-    func getLayoutInfo(name:layouts) ->[Bool]{
-        switch: name {
-            case .one:
-            return[false, true, true, true, false, false]
-            case .two:
-            return[true, false, false, false, true, true]
-            case .three:
-            return[true, true, false, false, false, false]
+    func getlayoutInfos(name: Layout) -> [Bool]{
+        switch name {
+        case .one:
+            return[false, false, true, false]  //haut gauche, haut droite, bas gauche, bas droite
+        case .two:
+            return[true, false, false, false]
+        case .three:
+            return[false, false, false, false]
         }
     }
-
-    @IBOutlet weak var rectTop : UIView!
-    @IBOutlet weak var rectBot : UIView!
-    @IBOutlet weak var SquareTopLeft : UIView!
-    @IBOutlet weak var SquareTopRight : UIView!
-    @IBOutlet weak var SquareBotLeft : UIView!
-    @IBOutlet weak var SquareBotRight : UIView!
-
+    
+    func displayLayout(id: Int, type: Layout){
+        let displays = getlayoutInfos(name: Layout(rawValue: id)!)
+        topLeft.isHidden = displays[0]
+        topRight.isHidden = displays[1]
+        botLeft.isHidden = displays[2]
+        botRight.isHidden = displays[3]
+    }
+    
+//    func isFull() -> Bool{
+//        var view1 = self.viewWithTag(0) as! UIImage
+//    }
+    
     
 }

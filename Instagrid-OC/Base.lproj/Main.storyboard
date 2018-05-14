@@ -33,14 +33,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mkE-Mk-P9I">
                                                 <rect key="frame" x="0.0" y="0.0" width="210" height="97.5"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fqj-ya-ugA">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fqj-ya-ugA" userLabel="Top Left">
                                                         <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ob1-yP-w75">
                                                                 <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                                                             </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgv-JH-yKy">
-                                                                <rect key="frame" x="25" y="24" width="48" height="48"/>
+                                                                <rect key="frame" x="25" y="24.5" width="48" height="48"/>
                                                                 <state key="normal" image="AddPicture"/>
                                                             </button>
                                                         </subviews>
@@ -54,14 +54,14 @@
                                                             <constraint firstAttribute="bottom" secondItem="ob1-yP-w75" secondAttribute="bottom" id="xLA-eG-jnL"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGF-sf-abM">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGF-sf-abM" userLabel="Top Right">
                                                         <rect key="frame" x="112.5" y="0.0" width="97.5" height="97.5"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z8f-d8-rq5">
+                                                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z8f-d8-rq5">
                                                                 <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                                                             </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIy-h0-K9n">
-                                                                <rect key="frame" x="25" y="24" width="48" height="48"/>
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIy-h0-K9n">
+                                                                <rect key="frame" x="25" y="24.5" width="48" height="48"/>
                                                                 <state key="normal" image="AddPicture"/>
                                                             </button>
                                                         </subviews>
@@ -80,14 +80,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Udd-Xr-10R">
                                                 <rect key="frame" x="0.0" y="112.5" width="210" height="97.5"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cl-I2-teC">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cl-I2-teC" userLabel="Bot Left">
                                                         <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lqb-mq-hYH">
+                                                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lqb-mq-hYH">
                                                                 <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                                                             </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4D-6l-rEZ">
-                                                                <rect key="frame" x="24" y="24.5" width="48" height="48"/>
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4D-6l-rEZ">
+                                                                <rect key="frame" x="25" y="24.5" width="48" height="48"/>
                                                                 <state key="normal" image="AddPicture"/>
                                                             </button>
                                                         </subviews>
@@ -101,14 +101,14 @@
                                                             <constraint firstItem="lqb-mq-hYH" firstAttribute="leading" secondItem="7cl-I2-teC" secondAttribute="leading" id="VZF-L5-CZe"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Bi-cQ-OV8">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Bi-cQ-OV8" userLabel="Bot Right">
                                                         <rect key="frame" x="112.5" y="0.0" width="97.5" height="97.5"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oYR-10-ZFj">
+                                                            <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oYR-10-ZFj">
                                                                 <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                                                             </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6U-Sn-oO2">
-                                                                <rect key="frame" x="24.5" y="24.5" width="48" height="48"/>
+                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6U-Sn-oO2">
+                                                                <rect key="frame" x="25" y="24.5" width="48" height="48"/>
                                                                 <state key="normal" image="AddPicture"/>
                                                             </button>
                                                         </subviews>
@@ -135,33 +135,54 @@
                                     <constraint firstAttribute="trailing" secondItem="Mb8-Lo-k0s" secondAttribute="trailing" constant="15" id="wYZ-ce-NyQ"/>
                                     <constraint firstAttribute="width" secondItem="Z80-f6-uVy" secondAttribute="height" multiplier="1:1" id="zW7-if-mDg"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="botLeft" destination="7cl-I2-teC" id="uYz-z8-FBA"/>
+                                    <outlet property="botRight" destination="1Bi-cQ-OV8" id="zX5-Nf-kCQ"/>
+                                    <outlet property="topLeft" destination="Fqj-ya-ugA" id="LMI-HN-0yw"/>
+                                    <outlet property="topRight" destination="dGF-sf-abM" id="0V1-kE-v6I"/>
+                                </connections>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hu9-4O-qnN">
-                                <rect key="frame" x="25" y="454" width="270" height="80"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hu9-4O-qnN">
+                                <rect key="frame" x="20.5" y="454" width="280" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jcg-3p-BV3">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <state key="normal" image="SquareTop"/>
+                                        <state key="selected" image="Selected" backgroundImage="SquareTop"/>
+                                        <connections>
+                                            <action selector="FirstButton:" destination="unI-em-AyO" eventType="touchUpInside" id="2Jh-UM-dXA"/>
+                                            <action selector="paterneButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1WP-le-ZeK"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxF-VF-f6b">
-                                        <rect key="frame" x="95" y="0.0" width="80" height="80"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxF-VF-f6b">
+                                        <rect key="frame" x="100" y="0.0" width="80" height="80"/>
                                         <state key="normal" image="SquareBot"/>
+                                        <state key="selected" image="Selected" backgroundImage="SquareBot"/>
+                                        <connections>
+                                            <action selector="SecondButton:" destination="unI-em-AyO" eventType="touchUpInside" id="loG-a2-VfY"/>
+                                            <action selector="paterneButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y8g-1M-QXB"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztK-yS-gdQ">
-                                        <rect key="frame" x="190" y="0.0" width="80" height="80"/>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztK-yS-gdQ">
+                                        <rect key="frame" x="200" y="0.0" width="80" height="80"/>
                                         <state key="normal" image="FullSquare"/>
+                                        <state key="selected" image="Selected" backgroundImage="FullSquare"/>
+                                        <connections>
+                                            <action selector="ThirdButton:" destination="unI-em-AyO" eventType="touchUpInside" id="gdP-WP-8wI"/>
+                                            <action selector="paterneButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fJf-k4-16u"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <variation key="heightClass=compact" axis="vertical"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="da3-mR-1bl">
-                                <rect key="frame" x="120.5" y="25" width="79" height="26"/>
-                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="20"/>
+                                <rect key="frame" x="114.5" y="25" width="91" height="30"/>
+                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vdr-VP-mFB">
-                                <rect key="frame" x="95.5" y="110.5" width="129.5" height="38.5"/>
+                                <rect key="frame" x="95.5" y="105.5" width="129.5" height="38.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SwipeUp" translatesAutoresizingMaskIntoConstraints="NO" id="cfB-MP-jdK">
                                         <rect key="frame" x="57.5" y="0.0" width="15" height="10"/>
@@ -196,7 +217,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.74301743509999996" green="0.83808487649999996" blue="0.89020544290000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Z80-f6-uVy" firstAttribute="top" secondItem="vdr-VP-mFB" secondAttribute="bottom" constant="15" id="2GI-q3-jx8"/>
+                            <constraint firstItem="Z80-f6-uVy" firstAttribute="top" secondItem="vdr-VP-mFB" secondAttribute="bottom" constant="20" id="2GI-q3-jx8"/>
                             <constraint firstItem="hu9-4O-qnN" firstAttribute="centerX" secondItem="Z80-f6-uVy" secondAttribute="centerX" id="3Qs-Ex-sg6"/>
                             <constraint firstItem="hu9-4O-qnN" firstAttribute="top" secondItem="Z80-f6-uVy" secondAttribute="bottom" constant="50" id="3cN-4I-qrq"/>
                             <constraint firstItem="Z80-f6-uVy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="8Qm-ce-kVd"/>
@@ -211,6 +232,7 @@
                             <constraint firstItem="Z80-f6-uVy" firstAttribute="centerY" secondItem="vdr-VP-mFB" secondAttribute="centerY" id="iMe-CO-L0R"/>
                             <constraint firstItem="hu9-4O-qnN" firstAttribute="centerY" secondItem="Z80-f6-uVy" secondAttribute="centerY" id="j13-L3-RjC"/>
                             <constraint firstItem="da3-mR-1bl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="qqo-Gs-ZNi"/>
+                            <constraint firstItem="hu9-4O-qnN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zmP-Nu-l6n"/>
                             <constraint firstItem="Z80-f6-uVy" firstAttribute="leading" secondItem="vdr-VP-mFB" secondAttribute="trailing" constant="10" id="zrr-ke-yHZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -223,6 +245,7 @@
                                 <exclude reference="zrr-ke-yHZ"/>
                                 <exclude reference="ES9-Cf-X1f"/>
                                 <exclude reference="j13-L3-RjC"/>
+                                <exclude reference="zmP-Nu-l6n"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -240,12 +263,21 @@
                                 <exclude reference="3Qs-Ex-sg6"/>
                                 <exclude reference="3cN-4I-qrq"/>
                                 <include reference="ES9-Cf-X1f"/>
-                                <include reference="j13-L3-RjC"/>
+                                <exclude reference="j13-L3-RjC"/>
+                                <include reference="zmP-Nu-l6n"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="FirstButton" destination="Jcg-3p-BV3" id="NIW-ac-Cby"/>
+                        <outlet property="centralView" destination="Z80-f6-uVy" id="8GG-G2-XSB"/>
+                        <outlet property="firstButton" destination="Jcg-3p-BV3" id="NrT-U7-qR2"/>
+                        <outlet property="secondButton" destination="ZxF-VF-f6b" id="zM2-9b-cM4"/>
+                        <outlet property="thirdButton" destination="ztK-yS-gdQ" id="xPd-5E-ZrS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="unI-em-AyO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="30" y="31.690140845070424"/>
         </scene>
@@ -253,6 +285,7 @@
     <resources>
         <image name="AddPicture" width="48" height="48"/>
         <image name="FullSquare" width="80" height="80"/>
+        <image name="Selected" width="80" height="80"/>
         <image name="SquareBot" width="80" height="80"/>
         <image name="SquareTop" width="80" height="80"/>
         <image name="SwipeLeft" width="10" height="15"/>
