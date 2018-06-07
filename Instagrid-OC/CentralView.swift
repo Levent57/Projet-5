@@ -16,6 +16,11 @@ class CentralView: UIView {
     @IBOutlet weak var botLeft : UIView!
     @IBOutlet weak var botRight : UIView!
     
+    @IBOutlet var imageViews : [UIImageView]!
+    @IBOutlet var addButtons : [UIButton]!
+    @IBOutlet var mainView : [UIView]!
+    
+    
     enum Layout: Int{
         case one = 1
         case two = 2
@@ -25,9 +30,9 @@ class CentralView: UIView {
     func getlayoutInfos(name: Layout) -> [Bool]{
         switch name {
         case .one:
-            return[false, false, true, false]  //haut gauche, haut droite, bas gauche, bas droite
+            return[false, false, false, true]  //haut gauche, haut droite, bas gauche, bas droite
         case .two:
-            return[true, false, false, false]
+            return[false, true, false, false]
         case .three:
             return[false, false, false, false]
         }
@@ -41,9 +46,36 @@ class CentralView: UIView {
         botRight.isHidden = displays[3]
     }
     
-//    func isFull() -> Bool{
-//        var view1 = self.viewWithTag(0) as! UIImage
+    func hiddenView() -> [Int]{
+        var tags = [Int]()
+        for view in mainView{
+            if view.isHidden{
+                tags.append(view.tag)
+            }
+        }
+        return tags
+    }
+    
+    func AvailableToShare() -> Bool{
+        let tags = hiddenView()
+        var isAvailable = true
+        for image in imageViews{
+            if !tags.contains(image.tag), image.image == nil{
+                isAvailable = false
+            }
+        }
+        return isAvailable
+    }
+    
+//    func checkIfImageLoaded(view:UIImageView) -> Bool{
+//        var imageLoaded = false
+//        if view.image != nil{
+//            print("il y a une image")
+//            imageLoaded = true
+//        } else {
+//            imageLoaded = false
+//        }
+//        return imageLoaded
 //    }
-    
-    
+//
 }

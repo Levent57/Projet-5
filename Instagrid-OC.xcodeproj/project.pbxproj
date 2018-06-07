@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2B046C1B2090906400267EAC /* CentralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B046C1A2090906400267EAC /* CentralView.swift */; };
+		2B2AA51620B8087500ABC8AD /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2AA51520B8087500ABC8AD /* UIViewController.swift */; };
+		2B2AA51920B8097600ABC8AD /* UIImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2AA51820B8097600ABC8AD /* UIImagePickerController.swift */; };
 		2B952075208FECCA004245E9 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B952074208FECCA004245E9 /* Delm-Medium.otf */; };
 		2B952077208FECD0004245E9 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B952076208FECD0004245E9 /* ThirstySoftRegular.otf */; };
 		2BB2ECA2208F3A3C0052155B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2ECA1208F3A3C0052155B /* AppDelegate.swift */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		2B046C1A2090906400267EAC /* CentralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralView.swift; sourceTree = "<group>"; };
+		2B2AA51520B8087500ABC8AD /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		2B2AA51820B8097600ABC8AD /* UIImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImagePickerController.swift; sourceTree = "<group>"; };
 		2B952074208FECCA004245E9 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Delm-Medium.otf"; path = "../../Instagrid/Instagrid/Delm-Medium.otf"; sourceTree = "<group>"; };
 		2B952076208FECD0004245E9 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ThirstySoftRegular.otf; path = ../../Instagrid/Instagrid/ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		2BB2EC9E208F3A3C0052155B /* Instagrid-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Instagrid-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B2AA51720B8095400ABC8AD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2B2AA51520B8087500ABC8AD /* UIViewController.swift */,
+				2B2AA51820B8097600ABC8AD /* UIImagePickerController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		2BB2EC95208F3A3C0052155B = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +73,7 @@
 		2BB2ECA0208F3A3C0052155B /* Instagrid-OC */ = {
 			isa = PBXGroup;
 			children = (
+				2B2AA51720B8095400ABC8AD /* Extensions */,
 				2BB2ECA1208F3A3C0052155B /* AppDelegate.swift */,
 				2BB2ECA3208F3A3C0052155B /* ViewController.swift */,
 				2B046C1A2090906400267EAC /* CentralView.swift */,
@@ -148,7 +162,9 @@
 			files = (
 				2B046C1B2090906400267EAC /* CentralView.swift in Sources */,
 				2BB2ECA4208F3A3C0052155B /* ViewController.swift in Sources */,
+				2B2AA51620B8087500ABC8AD /* UIViewController.swift in Sources */,
 				2BB2ECA2208F3A3C0052155B /* AppDelegate.swift in Sources */,
+				2B2AA51920B8097600ABC8AD /* UIImagePickerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
