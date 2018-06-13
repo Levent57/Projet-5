@@ -48,15 +48,21 @@ class CentralView: UIView {
     
     func hiddenView() -> [Int]{
         var tags = [Int]()
-        for view in mainView{
-            if view.isHidden{
+//        for view in mainView{
+//            if view.isHidden{
+//                tags.append(view.tag)
+//            }
+//        }
+        mainView.forEach { (view) in
+            if view.isHidden {
                 tags.append(view.tag)
             }
         }
+        print(tags)
         return tags
     }
     
-    func AvailableToShare() -> Bool{
+    func availableToShare() -> Bool{
         let tags = hiddenView()
         var isAvailable = true
         for image in imageViews{
@@ -65,17 +71,14 @@ class CentralView: UIView {
             }
         }
         return isAvailable
-    }
-    
-//    func checkIfImageLoaded(view:UIImageView) -> Bool{
-//        var imageLoaded = false
-//        if view.image != nil{
-//            print("il y a une image")
-//            imageLoaded = true
-//        } else {
-//            imageLoaded = false
+//        var isAvailable = false
+//        for image in imageViews{
+//                if !(image.superview?.isHidden)!, image.image != nil {
+//                    isAvailable = true
+//                }
 //        }
-//        return imageLoaded
-//    }
-//
+//        print(isAvailable)
+//        return isAvailable
+    }
+
 }

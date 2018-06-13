@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     
     var tag : Int?
     let imagePicker = UIImagePickerController()
-    var tapGestureRecognizer : UITapGestureRecognizer?
     var swipeGestureRecognizer : UISwipeGestureRecognizer?
     
 
@@ -43,20 +42,30 @@ class ViewController: UIViewController {
     
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBAction func AddPicture(_ sender: UIButton) {
+    @IBAction func addPicture(_ sender: UIButton) {
         tag = sender.tag
         let myAlert = UIAlertController(title: "Select image from", message: "", preferredStyle: .actionSheet)
         myAlert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
-            self.AddImageFromCamera()
+            self.addImageFromCamera()
         }))
         myAlert.addAction(UIAlertAction(title: "Library", style: .default, handler: { (action: UIAlertAction) in
-            self.AddImageFromLibrary()
+            self.addImageFromLibrary()
         }))
         myAlert.addAction(UIAlertAction(title: "Canel", style: .cancel, handler: nil))
             self.present(myAlert, animated: true)
     }
     
-    func AddImageFromCamera(){
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imagePicker.delegate = self
+        centralView.isUserInteractionEnabled = true
+        centralView.displayLayout(id: 1, type: .one)
+        firstButton.isSelected = true
+//        setupSwipe()
+        NotificationCenter.default.addObserver(self, selector: #selector(setupSwipe), name: .UIDeviceOrientationDidChange, object: nil)
+    }
+    
+    func addImageFromCamera(){
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
             imagePicker.sourceType = .camera
             present(imagePicker, animated: true, completion: nil)
@@ -65,10 +74,9 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         }
     }
     
-    func AddImageFromLibrary(){
+    func addImageFromLibrary(){
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
             imagePicker.sourceType = .photoLibrary
-            //                imagePicker.allowsEditing = false
             present(imagePicker, animated: true, completion: nil)
         }
     }
@@ -78,7 +86,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         guard let tag = tag else { return }
         centralView.imageViews[tag].image = image
         centralView.addButtons[tag].isHidden = true
-        guard let tapGestureRecognizer = tapGestureRecognizer else { return }
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         centralView.imageViews[tag].addGestureRecognizer(tapGestureRecognizer)
         dismiss(animated: true, completion: nil)
     }
@@ -93,34 +101,22 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        imagePicker.delegate = self
-        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        centralView.isUserInteractionEnabled = true
-        centralView.displayLayout(id: 1, type: .one)
-        firstButton.isSelected = true
-        setupSwipe()
-        NotificationCenter.default.addObserver(self, selector: #selector(setupSwipe), name: .UIDeviceOrientationDidChange, object: nil)
-    }
-    
-    
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
         tag = tapGestureRecognizer.view?.tag
         let myAlert = UIAlertController(title: "Select image from", message: "", preferredStyle: .actionSheet)
         myAlert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
-            self.AddImageFromCamera()
+            self.addImageFromCamera()
         }))
         myAlert.addAction(UIAlertAction(title: "Library", style: .default, handler: { (action: UIAlertAction) in
-            self.AddImageFromLibrary()
+            self.addImageFromLibrary()
         }))
-        myAlert.addAction(UIAlertAction(title: "Canel", style: .cancel, handler: nil))
+        myAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(myAlert, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//         Dispose of any resources that can be recreated.
     }
     
     func unseclectButtons(){
@@ -129,12 +125,13 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         thirdButton.isSelected = false
     }
     
-    func share(){
-        if centralView.AvailableToShare() {
-            guard let finalPicture = convertUiviewToImage(from: centralView) else { return }
+    @objc func share(){
+        if centralView.availableToShare() {
+            guard let finalPicture = GridManager.convertUiviewToImage(from: centralView) else { return }
             displayShareSheet(shareContent: finalPicture)
         } else {
             displayErrorPopUp(title: "Incomplet", message: "Veuillez remplir tous les champs")
+            backAnimation(duration: 0.5, delay: 0.5)
         }
     }
     
@@ -147,40 +144,64 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     }
     
     @objc func setupSwipe(){
-        swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(shareAnimation))
+        swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(shareAction(gesture:)))
         guard let swipe = swipeGestureRecognizer else { return }
         swipeDirection()
         centralView.addGestureRecognizer(swipe)
     }
-    
-    @objc func shareAnimation(){
-        let transformVertical = CGAffineTransform(translationX: 0, y: -view.frame.height)
-        let transformLandscape = CGAffineTransform(translationX: -view.frame.width, y: 0 )
+  
+    @objc func shareAction(gesture: UISwipeGestureRecognizer) {
         if swipeGestureRecognizer?.direction == .up{
-            UIView.animate(withDuration: 0.3, animations: { self.centralView.transform = transformVertical })
+            animation(duration: 0.5, delay: 0, x: 0, y: -view.frame.height) { self.share() }
         } else {
-            UIView.animate(withDuration: 0.3, animations: { self.centralView.transform = transformLandscape })
+            animation(duration: 0.5, delay: 0, x: -view.frame.width, y: 0) { self.share() }
         }
     }
-//
-//    func convertToShare(){
-//        guard let collage = convertUiviewToImage(from: centralView) else { return }
-//        displayShareSheet(shareContent: collage)
-//        }
     
     func displayShareSheet(shareContent:UIImage) {
         let activityViewController = UIActivityViewController(activityItems: [shareContent], applicationActivities: nil)
         activityViewController.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.postToFacebook, UIActivityType.postToTwitter]
         present(activityViewController, animated: true, completion: nil)
+        activityViewController.completionWithItemsHandler = { activity, completed, items, error in
+            self.backAnimation(duration: 0.5, delay: 0)
+        }
+    }
+    
+    func animation(duration: Double,delay : Double,x: CGFloat, y: CGFloat, onSuccess: @escaping () -> Void){
+//        UIView.animate(withDuration: duration, delay: delay, animations: {
+//            self.centralView.transform = CGAffineTransform(translationX: x, y: y)
+//        })
+        UIView.animate(withDuration: duration, animations: {
+            self.centralView.transform = CGAffineTransform(translationX: x, y: y)
+        }) { (success) in
+            onSuccess()
+        }
+    }
+    
+    func backAnimation(duration: Double, delay: Double){
+        UIView.animate(withDuration: duration, delay: delay ,animations: {
+            self.centralView.transform = .identity
+        })
     }
 
+
+//    func convertUiviewToImage(from view:CentralView) -> UIImage?{
+//        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+//        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+//        guard let img = UIGraphicsGetImageFromCurrentImageContext() else {return nil}
+//        UIGraphicsEndImageContext()
+//        return img
+//    }
     
-    func convertUiviewToImage(from view:CentralView) -> UIImage?{
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
-        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-        guard let img = UIGraphicsGetImageFromCurrentImageContext() else {return nil}
-        UIGraphicsEndImageContext()
-        return img
-    }
+    
+    //    @objc func shareAnimation(){
+    //        let transformVertical = CGAffineTransform(translationX: 0, y: -view.frame.height)
+    //        let transformLandscape = CGAffineTransform(translationX: -view.frame.width, y: 0 )
+    //        if swipeGestureRecognizer?.direction == .up{
+    //            UIView.animate(withDuration: 0.3, animations: { self.centralView.transform = transformVertical }) //{ (success) in if success { self.centralView.transform = .identity}}
+    //        } else {
+    //            UIView.animate(withDuration: 0.3, animations: { self.centralView.transform = transformLandscape }) //{ (success) in if success { self.centralView.transform = .identity}}
+    //        }
+    //    }
     
 }

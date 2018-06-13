@@ -36,14 +36,14 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fqj-ya-ugA" userLabel="Top Left">
                                                         <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                                                         <subviews>
-                                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ob1-yP-w75">
+                                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ob1-yP-w75">
                                                                 <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                                                             </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgv-JH-yKy">
                                                                 <rect key="frame" x="25" y="24.5" width="48" height="48"/>
                                                                 <state key="normal" image="AddPicture"/>
                                                                 <connections>
-                                                                    <action selector="AddPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q3p-zX-3VD"/>
+                                                                    <action selector="addPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TSS-b2-ddo"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -57,17 +57,17 @@
                                                             <constraint firstAttribute="bottom" secondItem="ob1-yP-w75" secondAttribute="bottom" id="xLA-eG-jnL"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGF-sf-abM" userLabel="Top Right">
+                                                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGF-sf-abM" userLabel="Top Right">
                                                         <rect key="frame" x="112.5" y="0.0" width="97.5" height="97.5"/>
                                                         <subviews>
-                                                            <imageView tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z8f-d8-rq5">
+                                                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z8f-d8-rq5">
                                                                 <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                                                             </imageView>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIy-h0-K9n">
                                                                 <rect key="frame" x="25" y="24.5" width="48" height="48"/>
                                                                 <state key="normal" image="AddPicture"/>
                                                                 <connections>
-                                                                    <action selector="AddPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="48Q-lL-6RG"/>
+                                                                    <action selector="addPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sAz-aj-U1T"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -86,17 +86,17 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Udd-Xr-10R">
                                                 <rect key="frame" x="0.0" y="112.5" width="210" height="97.5"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cl-I2-teC" userLabel="Bot Left">
+                                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cl-I2-teC" userLabel="Bot Left">
                                                         <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                                                         <subviews>
-                                                            <imageView tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lqb-mq-hYH">
+                                                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lqb-mq-hYH">
                                                                 <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                                                             </imageView>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4D-6l-rEZ">
                                                                 <rect key="frame" x="25" y="24.5" width="48" height="48"/>
                                                                 <state key="normal" image="AddPicture"/>
                                                                 <connections>
-                                                                    <action selector="AddPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ong-mr-1xr"/>
+                                                                    <action selector="addPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Aa-cu-S4l"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -110,17 +110,17 @@
                                                             <constraint firstItem="lqb-mq-hYH" firstAttribute="leading" secondItem="7cl-I2-teC" secondAttribute="leading" id="VZF-L5-CZe"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Bi-cQ-OV8" userLabel="Bot Right">
+                                                    <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Bi-cQ-OV8" userLabel="Bot Right">
                                                         <rect key="frame" x="112.5" y="0.0" width="97.5" height="97.5"/>
                                                         <subviews>
-                                                            <imageView tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oYR-10-ZFj">
+                                                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oYR-10-ZFj">
                                                                 <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
                                                             </imageView>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6U-Sn-oO2">
                                                                 <rect key="frame" x="25" y="24.5" width="48" height="48"/>
                                                                 <state key="normal" image="AddPicture"/>
                                                                 <connections>
-                                                                    <action selector="AddPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IbD-vb-DO3"/>
+                                                                    <action selector="addPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aeI-oQ-8iU"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
