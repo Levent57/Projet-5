@@ -149,10 +149,10 @@
                                     <constraint firstAttribute="width" secondItem="Z80-f6-uVy" secondAttribute="height" multiplier="1:1" id="zW7-if-mDg"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="botLeft" destination="7cl-I2-teC" id="uYz-z8-FBA"/>
-                                    <outlet property="botRight" destination="1Bi-cQ-OV8" id="zX5-Nf-kCQ"/>
-                                    <outlet property="topLeft" destination="Fqj-ya-ugA" id="LMI-HN-0yw"/>
-                                    <outlet property="topRight" destination="dGF-sf-abM" id="0V1-kE-v6I"/>
+                                    <outlet property="botLeftView" destination="7cl-I2-teC" id="Ez6-nY-5gh"/>
+                                    <outlet property="botRightView" destination="1Bi-cQ-OV8" id="Obh-Hj-GWO"/>
+                                    <outlet property="topLeftView" destination="Fqj-ya-ugA" id="xkc-UA-cWA"/>
+                                    <outlet property="topRightView" destination="dGF-sf-abM" id="JKE-0o-fKw"/>
                                     <outletCollection property="imageViews" destination="ob1-yP-w75" collectionClass="NSMutableArray" id="6lW-bg-6Wq"/>
                                     <outletCollection property="imageViews" destination="Z8f-d8-rq5" collectionClass="NSMutableArray" id="JZb-tI-2t0"/>
                                     <outletCollection property="imageViews" destination="lqb-mq-hYH" collectionClass="NSMutableArray" id="qo3-bE-oAT"/>

@@ -61,8 +61,13 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         centralView.isUserInteractionEnabled = true
         centralView.displayLayout(id: 1, type: .one)
         firstButton.isSelected = true
-//        setupSwipe()
         NotificationCenter.default.addObserver(self, selector: #selector(setupSwipe), name: .UIDeviceOrientationDidChange, object: nil)
+    }
+    
+    func unseclectButtons(){
+        firstButton.isSelected = false
+        secondButton.isSelected = false
+        thirdButton.isSelected = false
     }
     
     func addImageFromCamera(){
@@ -114,24 +119,22 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         self.present(myAlert, animated: true)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-//         Dispose of any resources that can be recreated.
-    }
-    
-    func unseclectButtons(){
-        firstButton.isSelected = false
-        secondButton.isSelected = false
-        thirdButton.isSelected = false
-    }
-    
     @objc func share(){
         if centralView.availableToShare() {
             guard let finalPicture = GridManager.convertUiviewToImage(from: centralView) else { return }
             displayShareSheet(shareContent: finalPicture)
         } else {
             displayErrorPopUp(title: "Incomplet", message: "Veuillez remplir tous les champs")
-            backAnimation(duration: 0.5, delay: 0.5)
+            backAnimation(duration: 0.5)
+        }
+    }
+    
+    func displayShareSheet(shareContent:UIImage) {
+        let activityViewController = UIActivityViewController(activityItems: [shareContent], applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.postToFacebook, UIActivityType.postToTwitter]
+        present(activityViewController, animated: true, completion: nil)
+        activityViewController.completionWithItemsHandler = { activity, completed, items, error in
+            self.backAnimation(duration: 0.5)
         }
     }
     
@@ -158,19 +161,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         }
     }
     
-    func displayShareSheet(shareContent:UIImage) {
-        let activityViewController = UIActivityViewController(activityItems: [shareContent], applicationActivities: nil)
-        activityViewController.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.postToFacebook, UIActivityType.postToTwitter]
-        present(activityViewController, animated: true, completion: nil)
-        activityViewController.completionWithItemsHandler = { activity, completed, items, error in
-            self.backAnimation(duration: 0.5, delay: 0)
-        }
-    }
-    
     func animation(duration: Double,delay : Double,x: CGFloat, y: CGFloat, onSuccess: @escaping () -> Void){
-//        UIView.animate(withDuration: duration, delay: delay, animations: {
-//            self.centralView.transform = CGAffineTransform(translationX: x, y: y)
-//        })
         UIView.animate(withDuration: duration, animations: {
             self.centralView.transform = CGAffineTransform(translationX: x, y: y)
         }) { (success) in
@@ -178,30 +169,15 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         }
     }
     
-    func backAnimation(duration: Double, delay: Double){
-        UIView.animate(withDuration: duration, delay: delay ,animations: {
+    func backAnimation(duration: Double){
+        UIView.animate(withDuration: duration, animations: {
             self.centralView.transform = .identity
         })
     }
-
-
-//    func convertUiviewToImage(from view:CentralView) -> UIImage?{
-//        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
-//        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-//        guard let img = UIGraphicsGetImageFromCurrentImageContext() else {return nil}
-//        UIGraphicsEndImageContext()
-//        return img
-//    }
     
-    
-    //    @objc func shareAnimation(){
-    //        let transformVertical = CGAffineTransform(translationX: 0, y: -view.frame.height)
-    //        let transformLandscape = CGAffineTransform(translationX: -view.frame.width, y: 0 )
-    //        if swipeGestureRecognizer?.direction == .up{
-    //            UIView.animate(withDuration: 0.3, animations: { self.centralView.transform = transformVertical }) //{ (success) in if success { self.centralView.transform = .identity}}
-    //        } else {
-    //            UIView.animate(withDuration: 0.3, animations: { self.centralView.transform = transformLandscape }) //{ (success) in if success { self.centralView.transform = .identity}}
-    //        }
-    //    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        //         Dispose of any resources that can be recreated.
+    }
     
 }

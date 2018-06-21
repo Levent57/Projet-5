@@ -11,10 +11,10 @@ import UIKit
 
 class CentralView: UIView {
     
-    @IBOutlet weak var topLeft : UIView!
-    @IBOutlet weak var topRight : UIView!
-    @IBOutlet weak var botLeft : UIView!
-    @IBOutlet weak var botRight : UIView!
+    @IBOutlet weak var topLeftView : UIView!
+    @IBOutlet weak var topRightView : UIView!
+    @IBOutlet weak var botLeftView : UIView!
+    @IBOutlet weak var botRightView : UIView!
     
     @IBOutlet var imageViews : [UIImageView]!
     @IBOutlet var addButtons : [UIButton]!
@@ -40,25 +40,19 @@ class CentralView: UIView {
     
     func displayLayout(id: Int, type: Layout){
         let displays = getlayoutInfos(name: Layout(rawValue: id)!)
-        topLeft.isHidden = displays[0]
-        topRight.isHidden = displays[1]
-        botLeft.isHidden = displays[2]
-        botRight.isHidden = displays[3]
+        topLeftView.isHidden = displays[0]
+        topRightView.isHidden = displays[1]
+        botLeftView.isHidden = displays[2]
+        botRightView.isHidden = displays[3]
     }
     
     func hiddenView() -> [Int]{
         var tags = [Int]()
-//        for view in mainView{
-//            if view.isHidden{
-//                tags.append(view.tag)
-//            }
-//        }
-        mainView.forEach { (view) in
-            if view.isHidden {
+        for view in mainView{
+            if view.isHidden{
                 tags.append(view.tag)
             }
         }
-        print(tags)
         return tags
     }
     
@@ -71,14 +65,6 @@ class CentralView: UIView {
             }
         }
         return isAvailable
-//        var isAvailable = false
-//        for image in imageViews{
-//                if !(image.superview?.isHidden)!, image.image != nil {
-//                    isAvailable = true
-//                }
-//        }
-//        print(isAvailable)
-//        return isAvailable
     }
 
 }
